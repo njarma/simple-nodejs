@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = "lisandrodev/simple-nodejs"
-        DEPLOY_SERVER = "192.168.0.5"
-        DEPLOY_USER = "lisandro"
+        DOCKER_IMAGE_NAME = "njarma/simple-nodejs"
+        DEPLOY_SERVER = "192.168.2.117"
+        DEPLOY_USER = "njarma"
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/LisandroLuna/simple-nodejs.git'
+                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/njarma/simple-nodejs.git'
                 dir("${env.WORKSPACE}") {
                 snykSecurity(
                     snykInstallation: 'snyk',
